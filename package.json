@@ -1,0 +1,22 @@
+{
+  "name": "sweatworks",
+  "version": "1.0.0",
+  "description": "SweatWorks Technical Interview",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha --exit endpoints.spec.js"
+  },
+  "author": "Eduardo Albelo",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "method-override": "^2.3.10",
+    "moment": "^2.22.0",
+    "sqlite3": "^4.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^5.0.5",
+    "supertest": "^3.0.0"
+  }
+}

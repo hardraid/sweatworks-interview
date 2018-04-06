@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Sweatworks">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <base href="/">
+    <link rel="stylesheet" href="style.css">
+    <title>SweatWorks Interview</title>
+</head>
+
+<body>
+
+    <header class="main-header">
+        <h1>Sweatworks Interview</h1>
+        <div class="searchbox">
+            <input type="text" ng-model="term" ng-trim="true" ng-minlength="3" role="search" placeholder="Search by Title" ng-required="true" required/>
+            <button ng-click="articles.search(term)">Search</button>
+        </div>
+    </header>
+    <h2 class="subtitle">{{ articles.header }} Articles /
+        <small>Page {{articles.currentPage}}</small>
+    </h2>
+    <div class="container">
+        <section class="content" ng-controller="ArticleController">
+            <article ng-repeat="article in articles.list">
+                <h3>{{ article.title }}</h3>
+                <h4>
+                    <small>{{ article.created_at | date:'medium' }}</small>
+                </h4>
+                <p>{{ article.body }}</p>
+                <small class="author">{{ article.author.name }},
+                    <span class="email">{{ article.author.email }}</span>
+                </small>
+            </article>
+        </section>
+        <aside class="authors" ng-controller="AuthorController">
+            <ul>
+                <li>
+                    <a href="#" ng-click="articles.load()">See All</a>
+                </li>
+                <li ng-repeat="author in authors | orderBy:'name'">
+                    <a href="#" ng-click="showArticles(author)">{{ author.name }}</a>
+                </li>
+            </ul>
+        </aside>
+    </div>
+    <footer>
+        <ul class="pager">
+            <li ng-repeat="page in articles.getPages()">
+                <a href="#" ng-click="articles.loadPage(page)">{{ page }}</a>
+            </li>
+        </ul>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular-route.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

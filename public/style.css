@@ -1,0 +1,173 @@
+body {
+    margin: 0 1rem;
+    padding: 0;
+    font-family: monospace;
+    font-size: 16px;
+}
+
+.main-header {
+    text-align: center;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: auto 220px;
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.content article {
+    display: inline-block;
+    margin: .5rem;
+    width: 250px;
+    padding: 1rem;
+    border-radius: .25rem;
+    border: 2px solid black;
+    box-shadow: 1px 1px rgba(0,0,0,.3);
+    animation: show .3s forwards;
+    height: 300px;
+    overflow: hidden;
+}
+
+.content article p {
+    line-height: 18px;
+    height: calc(18px * 8);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.content article h3, h4 {
+    margin: 0;
+}
+
+section.content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.authors {
+    background-color: black;
+    padding: 1rem;
+    border-radius: .25rem;
+    display: inline-block;
+    box-shadow: 1px 1px rgba(0,0,0,.3), 0px 2px 10px rgba(0,0,0,.5);
+}
+
+.authors ul, .pager {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.authors ul li:nth-last-child(n+2) {
+    margin-bottom: 1rem;
+}
+
+a:link {
+    text-decoration: none;
+    color: white;
+    transition: color .3s;
+}
+
+a:visited {
+    color: white;
+}
+
+a:hover {
+    color: orange;
+}
+
+a.delete {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+footer {
+    margin: 1rem 0;
+}
+
+.pager li {
+    display: inline-block;
+    margin: 0 .5rem;
+}
+
+.pager li a:link {
+    display: block;
+    border-radius: 50%;
+    background-color: black;
+    height: 24px;
+    width: 24px;
+    line-height: 24px;
+    vertical-align: middle;
+    text-align: center;
+    transition: transform .3s, box-shadow .3s;
+}
+
+.pager li a:hover {
+    transform: scale(1.2);
+    box-shadow: 0px 0px 10px rgba(0,0,0,.3);
+}
+
+small.author {
+    opacity: .8;
+}
+
+span.email {
+    color: green;
+}
+
+.subtitle {
+    margin-left: .5rem;
+}
+
+.subtitle small {
+    color: grey;
+}
+
+.searchbox input {
+    margin: 0;
+    line-height: 1.5rem;
+    font-size: 1rem;
+    border: none;
+    transition: outline .3s;
+}
+
+.searchbox input:focus, .searchbox button {
+    outline: none;
+}
+
+.searchbox button {
+    position: relative;
+    cursor: pointer;
+    margin: 0;
+    font-size: 1rem;
+    height: 1.5rem;
+    border: none;
+    background-color: black;
+    color: white;
+    border-radius: .25rem;
+    box-shadow: 0px 1px rgba(0,0,0,.5);
+    transition: background-color .3s, box-shadow .3s, transform .3s;
+}
+
+.searchbox button:hover {
+    background-color: orange;
+}
+
+.searchbox button:active {
+    transition: none;
+    box-shadow: inset 0px 0px 1px rgba(0,0,0,.5);
+    transform: translateY(2px);
+}
+
+.searchbox input.ng-dirty.ng-invalid {
+    outline: 1px solid red;
+}
